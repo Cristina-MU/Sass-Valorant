@@ -1,0 +1,41 @@
+@use 'variables' as *;
+@use 'header' as *;
+@use 'cards' as *;
+
+body {
+  background-image: url(../img/valorantBg.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: $text-color;
+  height: 1080px;
+  margin: 0;
+}
+
+// Módulo Header
+.header {
+  @include header-module($text-color, $bg-color, true);
+  height: 80px;
+}
+
+.title {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 4rem;
+}
+
+// Módulo Cards
+.agentes {
+  @include card-module($text-color, $color-border, 23%, 200px);
+
+  // Fondo de cada card
+  #card1 { background-image: url(../img/viperBg.jpg); }
+  #card2 { background-image: url(../img/neonBg.png); }
+  #card3 { background-image: url(../img/killjoyBg.jpg); }
+  #card4 { background-image: url(../img/jettBg.jpg); }
+  #card5 { background-image: url(../img/omenBg.jpeg); }
+  #card6 { background-image: url(../img/chamberBg.jpeg); }
+  #card7 { background-image: url(../img/phoenixBg.jpeg); }
+  #card8 { background-image: url(../img/sovaBg.jpg); }
+}
+
+

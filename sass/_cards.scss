@@ -1,0 +1,64 @@
+@use 'variables' as *;
+
+@mixin card-module($text-color, $color-border, $card-width: 23%, $card-height: 200px) {
+  text-align: center;
+
+  // Contenedor de cards
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 20px;
+  border: 2px solid $color-border;
+  padding: 20px;
+  margin: 20px;
+  border-radius: 20px;
+
+    .card {
+        width: $card-width;
+        height: $card-height;
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: $text-color;
+        font-size: 1.5rem;
+        border-radius: 8px;
+        position: relative;
+
+        &:hover{
+            &:hover {
+                &::after {
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background-color: rgba(0, 0, 0, 0.5);
+                    border-radius: 8px;
+                    z-index: 1;
+                }
+                color: $text-color; 
+                z-index: 2;
+                font-size: 2rem;
+            }
+        }
+    }
+
+  // Estilos de cards para tamaño tablet
+  @media (max-width: $tablet-breakpoint) and (min-width: $mobile-breakpoint) {
+    .card {
+      width: 40%;
+      padding: 10px;
+    }
+  }
+
+  // Estilos de cards para tamaño móvil
+  @media (max-width: $mobile-breakpoint) {
+    .card {
+      width: 100%;
+      padding: 10px;
+    }
+  }
+}
